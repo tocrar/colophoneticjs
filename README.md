@@ -8,7 +8,7 @@ One example is the popular German name "Meier" which may also be written "Mayr".
 
 The script extends the String object with the `colophonetics()` method.
 
-	import colophonetics from ".colophonetics"
+	import colophonetics from "./colophonetics"
 	// Wikipedia's example:
 	var string = "Müller-Lüdenscheidt";
 	console.log(colophonetics(string));
