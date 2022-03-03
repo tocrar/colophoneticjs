@@ -10,12 +10,16 @@ The script extends the String object with the `colophonetics()` method.
 
 	import colophonetics from "./colophonetics"
 	// Wikipedia's example:
-	var string = "Müller-Lüdenscheidt";
-	console.log(colophonetics(string));
+	var testString = "Müller-Lüdenscheidt";
+	console.log(colophonetics(testString));
 	// > 65752682
 
 	// Meier/Mayr example:
 	console.log(colophonetics("Meier Mayr"));
+	// > 67 67
+	
+	// Meier/Mayr example:
+	console.log(colophonetics(["Meier", "Mayr"]));
 	// > 67 67
 
 ## License
