@@ -1,0 +1,31 @@
+{
+    "name": "colophoneticjs",
+    "version": "1.0.0",
+    "type": "module",
+    "description": "Implementation of the Cologne Phonetics algorithm",
+    "main": "index.mjs",
+    "engines": {
+        "node": ">=14.17.0"
+    },
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/tocrar/colophoneticjs.git"
+    },
+    "keywords": [
+        "cologne",
+        "phonetics",
+        "algorithm"
+    ],
+    "author": "tocrar",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/tocrar/colophoneticjs/issues"
+    },
+    "homepage": "https://github.com/tocrar/colophoneticjs#readme"
+}
