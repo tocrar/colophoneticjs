@@ -23,7 +23,7 @@ const coding_table = {
     1: "bp",
     2: "dt",
     3: "fvw",
-    4: "cgkq",
+    4: "gkq",
     48: "x",
     5: "l",
     6: "mn",
@@ -37,11 +37,9 @@ export default function colophonetics(word) {
     }
 
     if (typeof word === "object") {
-        return Array.from(word)
-            .map((words) => {
-                return colophonetics(words)
-            })
-            .join(" ")
+        return Array.from(word, (words) => {
+            return colophonetics(words)
+        }).join(" ")
     }
 
     if (typeof word !== "string") {
@@ -50,8 +48,7 @@ export default function colophonetics(word) {
 
     word = word.trim().toLowerCase()
     for (let s in substitution) {
-        // word = word.replace(new RegExp(s, "g"), substitution[s])
-        word = word.replace(s, substitution[s])
+        word = word.replaceAll(s, substitution[s])
     }
 
     const value = []
@@ -85,14 +82,14 @@ export default function colophonetics(word) {
         }
     }
 
-    for (let i = 1; i < length; i++) {
-        if (value[i] == value[i - 1]) {
+    for (let i = 0; i < length; i++) {
+        if (value[i] == value[i + 1]) {
             value[i] = ""
         }
-        if (value[i] == 0) {
+        if (value[i] == 0 && i > 0) {
             value[i] = ""
         }
     }
 
-    return value.join("") + ""
+    return value.join("")
 }
