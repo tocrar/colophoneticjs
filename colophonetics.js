@@ -32,17 +32,13 @@ const coding_table = {
 };
 
 export default function colophonetics(word){
-
-    if(typeof word === 'string' && word.indexOf(' ') !== -1){
+        
+    if(typeof word === 'string' && word.trim().includes(' ')){
         word = word.split(' ');
     }
 
     if(typeof word === 'object'){
-        let phons = [];
-        for(let i in word){
-            phons.push(arguments.callee(word[i]));
-        }
-        return phons.join(' ');
+        return Array.from(word).map(words => {return colophonetics(words)}).join(' ')
     }
 
     if(typeof word !== 'string'){
