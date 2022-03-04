@@ -108,7 +108,7 @@ function substitute(word) {
     return word
 }
 
-export default function colophonetics(words) {
+function colophonetics(words) {
     if (typeof words !== "string") {
         throw new TypeError(`Expected string, got ${typeof words}`)
     }
@@ -138,3 +138,5 @@ export default function colophonetics(words) {
 
     return result.join("")
 }
+
+module.exports = colophonetics

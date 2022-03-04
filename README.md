@@ -4,45 +4,32 @@ A JavaScript-based implementation of the Cologne Phonetics algorithm. It is one 
 
 One example is the popular German name "Meier" which may also be written "Mayr". In Cologne Phonetics, both are represented as 67.
 
-## Usage
+## Usage as ES-Module
 
-The script extends the String object with the `colophonetics()` method.
+```js
+import colophonetics from "colophonetics"
 
-	import colophonetics from "./colophonetics"
-	// Wikipedia's example:
-	var testString = "Müller-Lüdenscheidt";
-	console.log(colophonetics(testString));
-	// > 65752682
+// Wikipedia's example:
+var testString = "Müller-Lüdenscheidt"
+console.log(colophonetics(testString))
+// > 65752682
 
-	// Meier/Mayr example:
-	console.log(colophonetics("Meier Mayr"));
-	// > 67 67
-	
-	// Meier/Mayr example:
-	console.log(colophonetics(["Meier", "Mayr"]));
-	// > 67 67
+// Meier/Mayr example:
+console.log(colophonetics("Meier Mayr"))
+// > 67 67
+```
 
-## License
+## Usage as Common-JS
 
-(The MIT License)
+```js
+const colophonetics = require("colophonetics")
 
-Copyright (c) 2011-2013 Jörg Tillmann &lt;colophonetics@joergtillmann.com&gt;
+// Wikipedia's example:
+var testString = "Müller-Lüdenscheidt"
+console.log(colophonetics(testString))
+// > 65752682
 
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-'Software'), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+// Meier/Mayr example:
+console.log(colophonetics("Meier Mayr"))
+// > 67 67
+```
