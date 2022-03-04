@@ -12,7 +12,17 @@ THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 Original: https://github.com/jtillmann/colophoneticjs
 
  */
-const substitution = { ä: "a", ö: "o", ü: "u", ß: "ss", ph: "f" }
+const substitution = {
+    ä: "a",
+    ö: "o",
+    ü: "u",
+    ß: "ss",
+    é: "e",
+    è: "e",
+    á: "a",
+    à: "a",
+    ph: "f",
+}
 const exceptions_leading = {
     4: ["ca", "ch", "ck", "cl", "co", "cq", "cu", "cx"],
     8: ["dc", "ds", "dz", "tc", "ts", "tz"],

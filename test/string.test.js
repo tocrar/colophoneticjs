@@ -53,6 +53,7 @@ const combinations = [
     ["cq", 4],
     ["cu", 4],
     ["cx", 48],
+    ["cr", 47],
     ["dc", 8],
     ["ds", 8],
     ["dz", 8],
@@ -68,6 +69,18 @@ const combinations = [
 ]
 
 test.each(combinations)("combination %s should return %s", (letter, value) => {
+    expect(colophonetics(letter)).toBe(value.toString())
+})
+
+const specialCases = [
+    ["crane", 476],
+    ["claim", 456],
+    ["canon", 466],
+    ["chore", 47],
+    ["schein", 86],
+]
+
+test.each(specialCases)("special word %s should return %s", (letter, value) => {
     expect(colophonetics(letter)).toBe(value.toString())
 })
 
