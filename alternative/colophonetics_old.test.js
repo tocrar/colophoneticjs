@@ -1,4 +1,4 @@
-import colophonetics from "../index_old.mjs"
+import colophonetics from "./index_old.mjs"
 
 test("handle empty string", () => {
     expect(colophonetics("")).toBe("")

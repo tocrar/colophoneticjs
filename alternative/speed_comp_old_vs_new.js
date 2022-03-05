@@ -1,4 +1,4 @@
-import v1 from "../index_old.mjs"
+import v1 from "./index_old.mjs"
 import v2 from "../index.mjs"
 
 const word =
