@@ -1,4 +1,4 @@
-import mjs from "../index.mjs"
+import mjs from "../mjs/index.js"
 import cjs from "../cjs/index.js"
 ;[mjs, cjs].forEach((colophonetics) => {
     test("handle empty string", () => {

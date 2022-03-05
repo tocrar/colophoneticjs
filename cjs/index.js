@@ -30,6 +30,14 @@ C (in initial position except before A, H, K, L, O, Q, R, U, X) => 8
 C (not before A, H, K, O, Q, U, X) => 8
 */
 
+if (!String.prototype.replaceAll) {
+    console.log("added replaceAll to String")
+    String.prototype.replaceAll = function (search, replacement) {
+        var target = this
+        return target.replace(new RegExp(search, "g"), replacement)
+    }
+}
+
 function rules(letter, pre, post) {
     switch (letter) {
         case "h":

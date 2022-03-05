@@ -2,10 +2,10 @@
     "name": "colophonetics",
     "version": "1.0.0",
     "type": "module",
-    "module": "./index.mjs",
+    "module": "./mjs/index.mjs",
     "main": "./cjs/index.js",
     "exports": {
-        "import": "./index.mjs",
+        "import": "./mjs/index.mjs",
         "default": "./cjs/index.js"
     },
     "description": "Implementation of the Cologne Phonetics algorithm",
