@@ -12,32 +12,37 @@ One example is the popular German name "Meier" which may also be written "Mayr".
 
 ## Usage
 
-### ES-Module
+### import
 
 ```js
+// import as ES-Module
 import colophonetics from "colophonetics"
 
-// Wikipedia's example:
-var testString = "Müller-Lüdenscheidt"
-console.log(colophonetics(testString))
-// > 65752682
-
-// Meier/Mayr example:
-console.log(colophonetics("Meier Mayr"))
-// > 67 67
+// or import as Common-JS
+const colophonetics = require("colophonetics")
 ```
 
-### Common-JS
+### strings
 
 ```js
-const colophonetics = require("colophonetics")
-
 // Wikipedia's example:
-var testString = "Müller-Lüdenscheidt"
+const nameString = "Müller-Lüdenscheidt"
 console.log(colophonetics(testString))
-// > 65752682
+// > "65752682"
 
 // Meier/Mayr example:
 console.log(colophonetics("Meier Mayr"))
-// > 67 67
+// > "67 67"
+```
+
+### arrays
+
+```js
+const nameArray = ["Meier", "Mayr", "Maier"]
+console.log(colophonetics(nameArray))
+// > ["67", "67", "67"]
+
+const sentence = ["The rabbit", "was to", "slow"]
+console.log(colophonetics(sentence))
+// > [ '2 712', '38 2', '853' ]
 ```

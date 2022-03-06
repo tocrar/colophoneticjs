@@ -114,8 +114,12 @@ function substitute(word) {
 }
 
 export default function colophonetics(words) {
-    if (typeof words !== "string") {
-        throw new TypeError(`Expected string, got ${typeof words}`)
+    if (typeof words !== "string" && words.constructor !== Array) {
+        throw new TypeError(`Expected string or array, got ${typeof words}`)
+    }
+
+    if (words.constructor === Array) {
+        return words.map((word) => colophonetics(word))
     }
 
     let word = words.trim().toLowerCase()
@@ -135,7 +139,6 @@ export default function colophonetics(words) {
         let val = rules(word[i], word[i - 1], word[i + 1])
         if (val != null && val != past) {
             past = val
-            // if (val === 0 && result.length !== 0) continue
             if (val === 0 && result.length) continue
             result.push(val)
         }

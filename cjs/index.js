@@ -114,8 +114,12 @@ function substitute(word) {
 }
 
 function colophonetics(words) {
-    if (typeof words !== "string") {
-        throw new TypeError(`Expected string, got ${typeof words}`)
+    if (typeof words !== "string" && words.constructor !== Array) {
+        throw new TypeError(`Expected string or array, got ${typeof words}`)
+    }
+
+    if (words.constructor === Array) {
+        return words.map((word) => colophonetics(word))
     }
 
     let word = words.trim().toLowerCase()

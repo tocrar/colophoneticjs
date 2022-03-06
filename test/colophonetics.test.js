@@ -122,23 +122,31 @@ import cjs from "../cjs/index.js"
         expect(colophonetics(sentence)).toBe(value)
     })
 
-    test(`${version}: Value Error: Integer`, () => {
+    const wordArray = [
+        [
+            ["Der", "Hase", "war", "nicht", "schnell", "genug", "um", "den", "Igel", "einzuholen"],
+            ["27", "08", "37", "642", "865", "464", "06", "26", "045", "06856"],
+        ],
+        [
+            ["Scheinbar ist", "dieser Text", "nicht in", "chinesisch verfasst"],
+            ["8617 082", "287 2482", "642 06", "4688 37382"],
+        ],
+    ]
+
+    test.each(wordArray)(`${version}: Array`, (sentence, value) => {
+        expect(colophonetics(sentence)).toEqual(value)
+    })
+
+    test(`${version}: TypeError: Integer`, () => {
         const errorfunc = () => {
             colophonetics(21)
         }
         expect(errorfunc).toThrow(TypeError)
     })
 
-    test(`${version}: Value Error: Object`, () => {
+    test(`${version}: TypeError: Object`, () => {
         const errorfunc = () => {
             colophonetics({})
-        }
-        expect(errorfunc).toThrow(TypeError)
-    })
-
-    test(`${version}: Value Error: Array`, () => {
-        const errorfunc = () => {
-            colophonetics([])
         }
         expect(errorfunc).toThrow(TypeError)
     })
