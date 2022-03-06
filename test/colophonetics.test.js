@@ -1,11 +1,14 @@
-import mjs from "../mjs/index.js"
+import mjs from "../mjs/index.mjs"
 import cjs from "../cjs/index.js"
-;[mjs, cjs].forEach((colophonetics) => {
-    test("handle empty string", () => {
+;[
+    [mjs, "mjs"],
+    [cjs, "cjs"],
+].forEach(([colophonetics, version]) => {
+    test(`${version}: handle empty string`, () => {
         expect(colophonetics("")).toBe("")
     })
 
-    test("handle spaces", () => {
+    test(`${version}: handle spaces`, () => {
         expect(colophonetics("    ")).toBe("")
     })
 
@@ -38,12 +41,9 @@ import cjs from "../cjs/index.js"
         ["z", 8],
     ]
 
-    test.each(singleLetter)(
-        "single letter %s should return %s",
-        (letter, value) => {
-            expect(colophonetics(letter)).toBe(value.toString())
-        }
-    )
+    test.each(singleLetter)(`${version}: single letter %s should return %s`, (letter, value) => {
+        expect(colophonetics(letter)).toBe(value.toString())
+    })
 
     const combinations = [
         ["ca", 4],
@@ -71,12 +71,9 @@ import cjs from "../cjs/index.js"
         ["aa", 0],
     ]
 
-    test.each(combinations)(
-        "combination %s should return %s",
-        (letter, value) => {
-            expect(colophonetics(letter)).toBe(value.toString())
-        }
-    )
+    test.each(combinations)(`${version}: combination %s should return %s`, (letter, value) => {
+        expect(colophonetics(letter)).toBe(value.toString())
+    })
 
     const specialCases = [
         ["crane", "476"],
@@ -87,23 +84,19 @@ import cjs from "../cjs/index.js"
         ["phone", "36"],
         ["china", "46"],
         ["hase", "08"],
+        ["birthday", "172"],
     ]
 
-    test.each(specialCases)(
-        "special word %s should return %s",
-        (letter, value) => {
-            expect(colophonetics(letter)).toBe(value)
-        }
-    )
+    test.each(specialCases)(`${version}: special word %s should return %s`, (letter, value) => {
+        expect(colophonetics(letter)).toBe(value)
+    })
 
-    test("Upper case letters", () => {
+    test(`${version}: Upper case letters`, () => {
         expect(colophonetics("COFFEE")).toBe("43")
     })
 
-    test("Long word: 'Kreisschifffahrtsgesellschaft'", () => {
-        expect(colophonetics("Kreisschifffahrtsgesellschaft")).toBe(
-            "478378485832"
-        )
+    test(`${version}: Long word: 'Kreisschifffahrtsgesellschaft'`, () => {
+        expect(colophonetics("Kreisschifffahrtsgesellschaft")).toBe("478378485832")
     })
 
     const sentences = [
@@ -125,25 +118,25 @@ import cjs from "../cjs/index.js"
         ],
     ]
 
-    test.each(sentences)("Sentence", (sentence, value) => {
+    test.each(sentences)(`${version}: Sentence`, (sentence, value) => {
         expect(colophonetics(sentence)).toBe(value)
     })
 
-    test("Value Error: Integer", () => {
+    test(`${version}: Value Error: Integer`, () => {
         const errorfunc = () => {
             colophonetics(21)
         }
         expect(errorfunc).toThrow(TypeError)
     })
 
-    test("Value Error: Object", () => {
+    test(`${version}: Value Error: Object`, () => {
         const errorfunc = () => {
             colophonetics({})
         }
         expect(errorfunc).toThrow(TypeError)
     })
 
-    test("Value Error: Array", () => {
+    test(`${version}: Value Error: Array`, () => {
         const errorfunc = () => {
             colophonetics([])
         }

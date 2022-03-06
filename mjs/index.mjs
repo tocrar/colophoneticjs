@@ -40,9 +40,6 @@ if (!String.prototype.replaceAll) {
 
 function rules(letter, pre, post) {
     switch (letter) {
-        case "h":
-            return -1
-
         case "a":
         case "e":
         case "i":
@@ -138,9 +135,9 @@ export default function colophonetics(words) {
         let val = rules(word[i], word[i - 1], word[i + 1])
         if (val != null && val != past) {
             past = val
-            if (val === 0 && result.length !== 0) continue
-            if (val != -1) result.push(val)
-            continue
+            // if (val === 0 && result.length !== 0) continue
+            if (val === 0 && result.length) continue
+            result.push(val)
         }
     }
 
