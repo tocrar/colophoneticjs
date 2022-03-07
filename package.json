@@ -1,6 +1,6 @@
 {
     "name": "colophonetics",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "type": "module",
     "module": "./mjs/index.mjs",
     "main": "./cjs/index.js",
